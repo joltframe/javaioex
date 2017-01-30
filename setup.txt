@@ -1,0 +1,26 @@
+ /c/Program Files/Java/jdk1.8.0_65/bin
+$ ./keytool -genkey -alias tomcat -keypass changeit -keystore ~/temp/keystore1.jks -storepass changeit -keyalg RSA -validity 360 -keysize 2048
+What is your first and last name?
+  [Unknown]:
+What is the name of your organizational unit?
+  [Unknown]:
+What is the name of your organization?
+  [Unknown]:
+What is the name of your City or Locality?
+  [Unknown]:
+What is the name of your State or Province?
+  [Unknown]:
+What is the two-letter country code for this unit?
+  [Unknown]:
+Is CN=Unknown, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown correct?
+  [no]:  yes
+
+then server.xml in eclipse:
+
+<Connector port="8443" SSLEnabled="true"
+        maxThreads="150" minSpareThreads="25" maxSpareThreads="75"
+        enableLookups="true" disableUploadTimeout="true"
+        acceptCount="100" debug="0" scheme="https" secure="true"
+        clientAuth="false" sslProtocol="TLSv1"
+        keystoreFile="/Users/Me/temp/keystore1.jks"
+        keystorePass="changeit" />
